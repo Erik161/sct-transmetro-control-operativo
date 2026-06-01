@@ -3,7 +3,7 @@ const { query } = require('../db/pool');
 const asyncHandler = require('../utils/asyncHandler');
 const { auth, requireRoles } = require('../middleware/auth');
 
-router.get('/', auth, requireRoles('Administrador', 'Supervisor', 'Operador'), asyncHandler(async (req, res) => {
+router.get('/', auth, requireRoles('Administrador', 'Supervisor'), asyncHandler(async (req, res) => {
   const result = await query(`
     SELECT e.*, m.nombre AS municipalidad
     FROM estacion e

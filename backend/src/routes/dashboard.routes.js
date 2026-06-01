@@ -75,16 +75,29 @@ async function getResumenRed() {
 router.get('/', auth, asyncHandler(async (req, res) => {
   const { rol, id_empleado } = req.usuario;
 
-  if (rol === 'Guardia') {
-    const asignaciones = await query(`
-      SELECT a.id_acceso, a.tipo, e.nombre AS estacion, e.ubicacion, ag.fecha_asignacion
-      FROM asignacion_guardia ag
-      INNER JOIN acceso a ON a.id_acceso = ag.id_acceso
-      INNER JOIN estacion e ON e.id_estacion = a.id_estacion
-      WHERE ag.id_empleado = $1
-      ORDER BY e.nombre, a.tipo
+  if (rol === 'Piloto') {
+    const bus = await query(`
+      SELECT b.id_bus, b.num_unidad, b.placa, b.capacidad_maxima, p.ubicacion AS parqueo,
+        l.id_linea, l.codigo AS codigo_linea, l.nombre AS linea, l.distancia_total,
+        STRING_AGG(DISTINCT h.descripcion, ' | ') AS horarios
+      FROM bus b
+      INNER JOIN parqueo p ON p.id_parqueo = b.id_parqueo
+      LEFT JOIN linea l ON l.id_linea = b.id_linea
+      LEFT JOIN horario_linea h ON h.id_linea = l.id_linea
+      WHERE b.id_piloto = $1
+      GROUP BY b.id_bus, p.ubicacion, l.id_linea
     `, [id_empleado]);
-    return res.json({ rol, asignaciones_guardia: asignaciones.rows });
+    const unidad = bus.rows[0] || null;
+    const estaciones = unidad?.id_linea
+      ? await query(`
+          SELECT e.id_estacion, e.nombre, e.ubicacion, le.orden
+          FROM linea_estacion le
+          INNER JOIN estacion e ON e.id_estacion = le.id_estacion
+          WHERE le.id_linea = $1
+          ORDER BY le.orden
+        `, [unidad.id_linea])
+      : { rows: [] };
+    return res.json({ rol, unidad, estaciones: estaciones.rows });
   }
 
   if (rol === 'Operador') {

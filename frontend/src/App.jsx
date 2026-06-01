@@ -30,10 +30,10 @@ function Shell() {
   if (!usuario) return <Login />;
 
   const items = [
-    { to: '/', label: 'Dashboard', icon: LayoutDashboard, roles: ['Administrador', 'Supervisor', 'Operador', 'Guardia'] },
-    { to: '/lineas', label: 'Lineas', icon: RouteIcon, roles: ['Administrador', 'Supervisor', 'Operador'] },
-    { to: '/estaciones', label: 'Estaciones', icon: MapPin, roles: ['Administrador', 'Supervisor', 'Operador'] },
-    { to: '/buses', label: 'Buses', icon: Bus, roles: ['Administrador', 'Supervisor', 'Operador'] },
+    { to: '/', label: 'Dashboard', icon: LayoutDashboard, roles: ['Administrador', 'Supervisor', 'Operador', 'Piloto'] },
+    { to: '/lineas', label: 'Lineas', icon: RouteIcon, roles: ['Administrador', 'Supervisor'] },
+    { to: '/estaciones', label: 'Estaciones', icon: MapPin, roles: ['Administrador', 'Supervisor'] },
+    { to: '/buses', label: 'Buses', icon: Bus, roles: ['Administrador', 'Supervisor'] },
     { to: '/mapa-gps', label: 'Mapa GPS', icon: Map, roles: ['Administrador', 'Supervisor', 'Operador'] },
     { to: '/personal', label: 'Personal', icon: Users, roles: ['Administrador', 'Supervisor'] },
     { to: '/operacion', label: 'Operacion', icon: Bell, badge: alertas, roles: ['Administrador', 'Operador'] }
@@ -107,9 +107,9 @@ function Shell() {
       <main className="min-h-screen p-4 md:ml-64 md:p-6">
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/lineas" element={<RoleRoute usuario={usuario} roles={['Administrador', 'Supervisor', 'Operador']}><Lineas /></RoleRoute>} />
-          <Route path="/estaciones" element={<RoleRoute usuario={usuario} roles={['Administrador', 'Supervisor', 'Operador']}><Estaciones /></RoleRoute>} />
-          <Route path="/buses" element={<RoleRoute usuario={usuario} roles={['Administrador', 'Supervisor', 'Operador']}><Buses /></RoleRoute>} />
+          <Route path="/lineas" element={<RoleRoute usuario={usuario} roles={['Administrador', 'Supervisor']}><Lineas /></RoleRoute>} />
+          <Route path="/estaciones" element={<RoleRoute usuario={usuario} roles={['Administrador', 'Supervisor']}><Estaciones /></RoleRoute>} />
+          <Route path="/buses" element={<RoleRoute usuario={usuario} roles={['Administrador', 'Supervisor']}><Buses /></RoleRoute>} />
           <Route path="/mapa-gps" element={<RoleRoute usuario={usuario} roles={['Administrador', 'Supervisor', 'Operador']}><MapaGps /></RoleRoute>} />
           <Route path="/personal" element={<RoleRoute usuario={usuario} roles={['Administrador', 'Supervisor']}><Empleados /></RoleRoute>} />
           <Route path="/empleados" element={<Navigate to="/personal" />} />

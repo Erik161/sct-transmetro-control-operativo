@@ -76,7 +76,15 @@ async function seed() {
   const passwordAdmin = await bcrypt.hash('admin123', 10);
   const passwordOperador = await bcrypt.hash('operador123', 10);
   const passwordSupervisor = await bcrypt.hash('supervisor123', 10);
-  const passwordGuardia = await bcrypt.hash('guardia123', 10);
+  const passwordPiloto = await bcrypt.hash('guardia123', 10);
+
+  await query("DELETE FROM usuario WHERE rol = 'Guardia'");
+  await query('ALTER TABLE usuario DROP CONSTRAINT IF EXISTS usuario_rol_check');
+  await query(`
+    ALTER TABLE usuario
+    ADD CONSTRAINT usuario_rol_check
+    CHECK (rol IN ('Piloto', 'Operador', 'Supervisor', 'Administrador'))
+  `);
 
   await query(`
     INSERT INTO municipalidad (nombre)
@@ -160,9 +168,10 @@ async function seed() {
 
   await query(`
     INSERT INTO usuario (id_empleado, contrasena, rol)
-    SELECT id_empleado, $1, 'Guardia' FROM empleado WHERE correo = 'guardia@sct-transmetro.gt'
-    ON CONFLICT (id_empleado) DO NOTHING
-  `, [passwordGuardia]);
+    SELECT id_empleado, $1, 'Piloto' FROM empleado WHERE correo = 'piloto@sct-transmetro.gt'
+    ON CONFLICT (id_empleado) DO UPDATE
+    SET contrasena = EXCLUDED.contrasena, rol = EXCLUDED.rol
+  `, [passwordPiloto]);
 
   await query(`
     INSERT INTO linea (nombre, codigo, id_municipalidad)
@@ -310,7 +319,7 @@ async function seed() {
   console.log('Admin: admin@sct-transmetro.gt / admin123');
   console.log('Operador: operador@sct-transmetro.gt / operador123');
   console.log('Supervisor: supervisor@sct-transmetro.gt / supervisor123');
-  console.log('Guardia: guardia@sct-transmetro.gt / guardia123');
+  console.log('Piloto: guardia@sct-transmetro.gt / guardia123');
 }
 
 seed()

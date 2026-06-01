@@ -13,7 +13,7 @@ CREATE TABLE usuario (
   id_usuario SERIAL PRIMARY KEY,
   id_empleado INT UNIQUE NOT NULL REFERENCES empleado(id_empleado),
   contrasena VARCHAR(255) NOT NULL,
-  rol VARCHAR(20) NOT NULL CHECK (rol IN ('Guardia', 'Operador', 'Supervisor', 'Administrador'))
+  rol VARCHAR(20) NOT NULL CHECK (rol IN ('Piloto', 'Operador', 'Supervisor', 'Administrador'))
 );
 
 CREATE TABLE municipalidad (

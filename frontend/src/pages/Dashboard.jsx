@@ -35,15 +35,19 @@ export default function Dashboard() {
     cargarDashboard();
   }, [cargarDashboard]);
 
-  if (usuario.rol === 'Guardia') {
-    return <GuardiaDashboard usuario={usuario} data={data} loading={loading} error={error} reload={cargarDashboard} />;
+  if (usuario.rol === 'Piloto') {
+    return <PilotoDashboard usuario={usuario} data={data} loading={loading} error={error} reload={cargarDashboard} />;
   }
 
   if (usuario.rol === 'Operador') {
     return <OperadorDashboard usuario={usuario} data={data} loading={loading} error={error} reload={cargarDashboard} />;
   }
 
-  return <RedDashboard usuario={usuario} data={data} loading={loading} error={error} reload={cargarDashboard} />;
+  if (usuario.rol === 'Supervisor') {
+    return <SupervisorDashboard usuario={usuario} data={data} loading={loading} error={error} reload={cargarDashboard} />;
+  }
+
+  return <AdminDashboard usuario={usuario} data={data} loading={loading} error={error} reload={cargarDashboard} />;
 }
 
 function Header({ eyebrow, title, description, loading, reload }) {
@@ -61,19 +65,19 @@ function Header({ eyebrow, title, description, loading, reload }) {
   );
 }
 
-function RedDashboard({ usuario, data, loading, error, reload }) {
+function AdminDashboard({ usuario, data, loading, error, reload }) {
   const alertasTotal = useMemo(() => (data?.alertas_ultimos_7_dias || []).reduce((total, alerta) => total + alerta.total, 0), [data]);
   const lineasConPendientes = useMemo(() => (data?.estado_lineas || []).filter((linea) => !linea.cumple_asignacion_buses).length, [data]);
   const cards = [
     { label: 'Lineas registradas', value: data?.lineas ?? 0, helper: `${lineasConPendientes} requieren revision`, icon: Route, tone: 'emerald' },
-    { label: 'Estaciones', value: data?.estaciones ?? 0, helper: usuario.rol === 'Administrador' ? `${data?.municipalidades ?? 0} municipalidades` : 'Cobertura de la red', icon: MapPin, tone: 'sky' },
+    { label: 'Estaciones', value: data?.estaciones ?? 0, helper: `${data?.municipalidades ?? 0} municipalidades`, icon: MapPin, tone: 'sky' },
     { label: 'Buses registrados', value: data?.buses ?? 0, helper: `${data?.recorridos_hoy ?? 0} recorridos creados hoy`, icon: Bus, tone: 'amber' },
     { label: 'Alertas recientes', value: alertasTotal, helper: 'Generadas en los ultimos 7 dias', icon: AlertTriangle, tone: alertasTotal > 0 ? 'rose' : 'slate' }
   ];
 
   return (
     <section className="space-y-6">
-      <Header eyebrow={usuario.rol === 'Administrador' ? 'Administracion de red' : 'Supervision operativa'} title={`Bienvenido, ${usuario.nombre}`} description="Indicadores para priorizar decisiones sobre cobertura, asignacion de unidades y demanda de pasajeros." loading={loading} reload={reload} />
+      <Header eyebrow="Administracion de red" title={`Bienvenido, ${usuario.nombre}`} description="Gestiona catalogos, personal y asignaciones operativas desde una vista general de la red." loading={loading} reload={reload} />
       {error && <ErrorMessage text={error} />}
       <Cards items={cards} />
       <div className="grid gap-6 xl:grid-cols-[1.5fr_1fr]">
@@ -89,8 +93,30 @@ function RedDashboard({ usuario, data, loading, error, reload }) {
       </div>
       <div className="grid gap-6 xl:grid-cols-[1.35fr_1fr]">
         <AlertList alertas={data?.alertas_recientes || []} />
-        {usuario.rol === 'Administrador' ? <TeamList items={data?.empleados_por_cargo || []} /> : <LineStatus items={data?.estado_lineas || []} />}
+        <TeamList items={data?.empleados_por_cargo || []} />
       </div>
+    </section>
+  );
+}
+
+function SupervisorDashboard({ usuario, data, loading, error, reload }) {
+  const alertasTotal = useMemo(() => (data?.alertas_ultimos_7_dias || []).reduce((total, alerta) => total + alerta.total, 0), [data]);
+  const lineasConPendientes = useMemo(() => (data?.estado_lineas || []).filter((linea) => !linea.cumple_asignacion_buses).length, [data]);
+  return (
+    <section className="space-y-6">
+      <Header eyebrow="Supervision operativa" title={`Panel de ${usuario.nombre}`} description="Consulta el estado de la red, identifica pendientes y revisa alertas sin modificar la configuracion." loading={loading} reload={reload} />
+      {error && <ErrorMessage text={error} />}
+      <Cards items={[
+        { label: 'Lineas supervisadas', value: data?.lineas ?? 0, helper: `${lineasConPendientes} con asignacion pendiente`, icon: Route, tone: lineasConPendientes > 0 ? 'amber' : 'emerald' },
+        { label: 'Estaciones de la red', value: data?.estaciones ?? 0, helper: `${data?.total_accesos ?? 0} accesos registrados`, icon: MapPin, tone: 'sky' },
+        { label: 'Accesos sin cobertura', value: data?.accesos_sin_cobertura ?? 0, helper: 'Requieren asignacion de guardia', icon: ShieldCheck, tone: (data?.accesos_sin_cobertura ?? 0) > 0 ? 'rose' : 'emerald' },
+        { label: 'Alertas recientes', value: alertasTotal, helper: 'Generadas en los ultimos 7 dias', icon: AlertTriangle, tone: alertasTotal > 0 ? 'rose' : 'slate' }
+      ]} />
+      <div className="grid gap-6 xl:grid-cols-[1.35fr_1fr]">
+        <LineStatus items={data?.estado_lineas || []} />
+        <GpsCard />
+      </div>
+      <AlertList alertas={data?.alertas_recientes || []} />
     </section>
   );
 }
@@ -117,30 +143,53 @@ function OperadorDashboard({ usuario, data, loading, error, reload }) {
   );
 }
 
-function GuardiaDashboard({ usuario, data, loading, error, reload }) {
-  const asignaciones = data?.asignaciones_guardia || [];
+function PilotoDashboard({ usuario, data, loading, error, reload }) {
+  const unidad = data?.unidad;
+  const estaciones = data?.estaciones || [];
   return (
     <section className="space-y-6">
-      <Header eyebrow="Cobertura de seguridad" title={`Turno de ${usuario.nombre}`} description="Consulta los accesos bajo tu responsabilidad durante la jornada." loading={loading} reload={reload} />
+      <Header eyebrow="Informacion de recorrido" title={`Ruta de ${usuario.nombre}`} description="Consulta la unidad, los horarios y las estaciones asignadas para tu jornada." loading={loading} reload={reload} />
       {error && <ErrorMessage text={error} />}
-      <Cards items={[{ label: 'Accesos asignados', value: asignaciones.length, helper: 'Cobertura activa registrada', icon: ShieldCheck, tone: 'emerald' }]} />
+      <Cards items={[
+        { label: 'Unidad asignada', value: unidad ? `#${unidad.num_unidad}` : '-', helper: unidad?.placa || 'Sin unidad asignada', icon: Bus, tone: 'emerald' },
+        { label: 'Linea asignada', value: unidad?.codigo_linea || '-', helper: unidad?.linea || 'Sin linea asignada', icon: Route, tone: 'sky' },
+        { label: 'Estaciones', value: estaciones.length, helper: 'Puntos del recorrido asignado', icon: MapPin, tone: 'amber' },
+        { label: 'Capacidad maxima', value: unidad?.capacidad_maxima || '-', helper: 'Pasajeros por unidad', icon: Users, tone: 'slate' }
+      ]} />
+      {unidad && (
+        <article className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <h3 className="font-semibold text-slate-900">Detalle de jornada</h3>
+          <div className="mt-4 grid gap-4 text-sm md:grid-cols-3">
+            <InfoItem label="Horarios" value={unidad.horarios || 'Horario no registrado'} />
+            <InfoItem label="Parqueo asignado" value={unidad.parqueo} />
+            <InfoItem label="Distancia de linea" value={`${unidad.distancia_total || 0} km`} />
+          </div>
+        </article>
+      )}
       <article className="rounded-xl border border-slate-200 bg-white shadow-sm">
         <div className="border-b border-slate-100 px-5 py-4">
-          <h3 className="font-semibold text-slate-900">Mis accesos asignados</h3>
-          <p className="mt-1 text-xs text-slate-500">Estaciones y puntos que debes cubrir.</p>
+          <h3 className="font-semibold text-slate-900">Estaciones del recorrido</h3>
+          <p className="mt-1 text-xs text-slate-500">Secuencia correspondiente a la linea asignada.</p>
         </div>
         <div className="divide-y divide-slate-100">
-          {asignaciones.length === 0 && <p className="px-5 py-8 text-center text-sm text-slate-500">No tienes accesos asignados.</p>}
-          {asignaciones.map((item) => (
-            <div key={item.id_acceso} className="px-5 py-4">
-              <p className="font-medium text-slate-900">{item.estacion}</p>
-              <p className="mt-1 text-sm text-slate-600">{item.tipo} · {item.ubicacion}</p>
+          {estaciones.length === 0 && <p className="px-5 py-8 text-center text-sm text-slate-500">No tienes una ruta asignada.</p>}
+          {estaciones.map((item) => (
+            <div key={item.id_estacion} className="flex gap-3 px-5 py-4">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-xs font-semibold text-emerald-700">{item.orden}</span>
+              <div>
+                <p className="font-medium text-slate-900">{item.nombre}</p>
+                <p className="mt-1 text-sm text-slate-600">{item.ubicacion}</p>
+              </div>
             </div>
           ))}
         </div>
       </article>
     </section>
   );
+}
+
+function InfoItem({ label, value }) {
+  return <div className="rounded-lg bg-slate-50 px-4 py-3"><p className="text-xs text-slate-500">{label}</p><p className="mt-1 font-medium text-slate-800">{value}</p></div>;
 }
 
 function Cards({ items }) {

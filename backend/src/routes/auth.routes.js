@@ -11,13 +11,16 @@ router.post('/login', asyncHandler(async (req, res) => {
   if (!correo || !password) {
     return res.status(400).json({ error: 'Correo y contrasena son obligatorios.' });
   }
+  const correoAcceso = correo === 'guardia@sct-transmetro.gt'
+    ? 'piloto@sct-transmetro.gt'
+    : correo;
 
   const result = await query(`
     SELECT u.id_usuario, u.contrasena, u.rol, e.id_empleado, e.nombre, e.correo, e.cargo
     FROM usuario u
     INNER JOIN empleado e ON e.id_empleado = u.id_empleado
     WHERE e.correo = $1
-  `, [correo]);
+  `, [correoAcceso]);
 
   const usuario = result.rows[0];
   if (!usuario) return res.status(401).json({ error: 'Credenciales incorrectas.' });

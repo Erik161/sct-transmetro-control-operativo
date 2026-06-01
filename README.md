@@ -25,7 +25,7 @@ Facilitar la toma de decisiones operativas mediante informacion organizada sobre
 | Administrador | Gestion completa de catalogos, personal y configuracion operativa |
 | Supervisor | Consulta de red, personal, alertas y cobertura |
 | Operador | Consulta de recorridos y registro de capacidad |
-| Guardia | Consulta de accesos asignados |
+| Piloto | Consulta de unidad, linea, horarios y estaciones asignadas |
 
 ## Tecnologias
 
@@ -99,7 +99,7 @@ El repositorio incluye:
 | Administrador | `admin@sct-transmetro.gt` | `admin123` |
 | Operador | `operador@sct-transmetro.gt` | `operador123` |
 | Supervisor | `supervisor@sct-transmetro.gt` | `supervisor123` |
-| Guardia | `guardia@sct-transmetro.gt` | `guardia123` |
+| Piloto | `guardia@sct-transmetro.gt` | `guardia123` |
 
 Las credenciales se utilizan exclusivamente para demostrar los permisos de cada rol.
 

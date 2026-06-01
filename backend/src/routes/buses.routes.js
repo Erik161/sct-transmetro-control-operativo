@@ -13,7 +13,7 @@ async function validarPiloto(idPiloto, res) {
   return true;
 }
 
-router.get('/', auth, requireRoles('Administrador', 'Supervisor', 'Operador'), asyncHandler(async (req, res) => {
+router.get('/', auth, requireRoles('Administrador', 'Supervisor'), asyncHandler(async (req, res) => {
   const params = [];
   let where = '';
   if (req.query.id_linea) {
