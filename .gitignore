@@ -1,0 +1,13 @@
+node_modules/
+dist/
+build/
+.env
+.env.production
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+coverage/
+*.log
+tools/.cache/
+respaldo-postgresql-*.sql

@@ -1,0 +1,222 @@
+{
+  "fuente_principal": "https://www.muniguate.com/movilidadurbana/transmetro/",
+  "municipalidad": "Municipalidad de Guatemala",
+  "lineas": [
+    {
+      "codigo": "L1",
+      "nombre": "Linea 1",
+      "url": "https://www.muniguate.com/movilidadurbana/linea-1/",
+      "tipo": "Transmetro",
+      "horarios": {
+        "lunes_viernes": "5:00 a 20:00 hrs.",
+        "sabado": "5:00 a 19:00 hrs.",
+        "domingo_festivos": "6:30 a 19:00 hrs."
+      },
+      "estaciones": [
+        ["Mercado Central", "8 avenida y 6 calle, zona 1"],
+        ["Correos", "8 avenida y 12 calle, zona 1"],
+        ["Beatas de Belen", "9 avenida y 15 calle, zona 1"],
+        ["Paso de las Letras", "8 avenida y 19 calle, zona 1"],
+        ["Centro Civico", "21 calle y 6 avenida A, zona 1"],
+        ["Sur 2", "Calzada Atanasio Tzul, zona 1"],
+        ["Gomez Carrillo", "5 avenida y 14 calle, zona 1"],
+        ["San Agustin", "5 avenida y 11 calle, zona 1"],
+        ["Parque Centenario", "9 avenida y 8 calle, zona 1"]
+      ]
+    },
+    {
+      "codigo": "L2",
+      "nombre": "Linea 2",
+      "url": "https://www.muniguate.com/movilidadurbana/linea-2/",
+      "tipo": "Transmetro",
+      "horarios": {
+        "lunes_viernes": "5:30 a 20:00 hrs.",
+        "sabado": "5:30 a 19:00 hrs.",
+        "domingo_festivos": "6:30 a 19:00 hrs."
+      },
+      "estaciones": [
+        ["San Jose de la Montana", "Avenida Simeon Canas y 6 calle, zona 2"],
+        ["Hipodromo del Norte", "Avenida Simeon Canas y 11 calle, zona 2"],
+        ["Simeon Canas", "Avenida Simeon Canas y 7 calle, zona 2"],
+        ["Jocotenango", "6 avenida entre 3 y 4 calle, zona 2"],
+        ["San Sebastian", "6 avenida y 3 calle, zona 1"]
+      ]
+    },
+    {
+      "codigo": "L6",
+      "nombre": "Linea 6",
+      "url": "https://www.muniguate.com/movilidadurbana/linea-6/",
+      "tipo": "Transmetro",
+      "horarios": {
+        "lunes_viernes": "5:00 a 21:00 hrs.",
+        "sabado": "5:00 a 20:00 hrs.",
+        "domingo_festivos": "6:00 a 20:00 hrs."
+      },
+      "estaciones": [
+        ["Periferico", "15 avenida y 3 calle, zona 6"],
+        ["Cipresales", "16 avenida y 6 calle, zona 6"],
+        ["Centro Zona 6", "16 avenida y 10 calle, zona 6"],
+        ["Academia", "16 avenida y 15 calle, zona 6"],
+        ["Cipresales", "Avenida La Pedrera y 18 calle, zona 6"],
+        ["Proyectos 4-4", "Avenida La Pedrera y 20 calle, zona 6"],
+        ["Proyectos", "Avenida La Pedrera y 25 calle, zona 6"],
+        ["Quintanal", "15 avenida y 13 calle, zona 6"],
+        ["Corpus Christi", "15 avenida y 10 calle, zona 6"],
+        ["Jose Marti", "14 avenida y 7 calle, zona 6"],
+        ["Santa Teresa", "10 avenida y 4 calle, zona 1"]
+      ]
+    },
+    {
+      "codigo": "L7",
+      "nombre": "Linea 7",
+      "url": "https://www.muniguate.com/movilidadurbana/linea-7/",
+      "tipo": "Transmetro",
+      "horarios": {
+        "lunes_viernes": "5:00 a 21:00 hrs.",
+        "sabado": "5:00 a 20:00 hrs.",
+        "domingo_festivos": "6:00 a 20:00 hrs."
+      },
+      "estaciones": [
+        ["USAC Periferico", "Anillo Periferico y 11 avenida, zona 12"],
+        ["Granai", "Anillo Periferico y 12 avenida, zona 11"],
+        ["Roosevelt", "Anillo Periferico y 7 avenida, zona 11"],
+        ["Rodolfo Robles", "Anillo Periferico 20 calle, zona 11"],
+        ["CEJUSA", "Anillo Periferico y 18 calle, zona 11"],
+        ["CEJUSA USAC Periferico", "Anillo Periferico y 17 calle, zona 11"],
+        ["San Jorge", "Anillo Periferico y 21 avenida, zona 11"],
+        ["San Jorge", "Anillo Periferico y 22 avenida, zona 11"],
+        ["Roosevelt", "Anillo Periferico y Calzada Roosevelt, zona 11"],
+        ["Roosevelt USAC Periferico", "Anillo Periferico y Calzada Roosevelt, zona 11"],
+        ["San Juan", "Anillo Periferico y 6 calle, zona 7"],
+        ["San Juan", "Anillo Periferico y 4 calle, zona 7"],
+        ["San Juan", "Anillo Periferico y 6 calle, zona 7"],
+        ["Ciudad de Plata II", "Anillo Periferico y 14 calle, zona 7"],
+        ["Ciudad de Plata II", "Anillo Periferico y 13 calle B, zona 7"],
+        ["Villa Linda", "Anillo Periferico y 16 calle, zona 7"],
+        ["Villa Linda", "Anillo Periferico y 17 calle, zona 7"],
+        ["4 de Febrero", "Anillo Periferico y 6 calle, zona 7"],
+        ["4 de Febrero", "Anillo Periferico y 25 calle, zona 7"],
+        ["Bethania", "Anillo Periferico y 25 calle, zona 7"],
+        ["Bethania USAC Periferico", "Anillo Periferico y 13 avenida, zona 7"],
+        ["Incenso", "Anillo Periferico y Puente El Incenso, zona 7"],
+        ["Incenso USAC Periferico", "Anillo Periferico y Puente El Incenso, zona 7"],
+        ["San Juan de Dios", "9 calle y 2 avenida, zona 1"],
+        ["Paseo Aycinena", "9 calle y 4 avenida, zona 1"],
+        ["La Merced", "11 avenida y 4 calle, zona 1"],
+        ["Cruz Roja", "4 calle y 8 avenida, zona 1"],
+        ["Archivo General", "4 avenida y 7 calle, zona 1"],
+        ["Santuario de Guadalupe", "8 calle y 1 avenida, zona 1"]
+      ]
+    },
+    {
+      "codigo": "L12",
+      "nombre": "Linea 12",
+      "url": "https://www.muniguate.com/movilidadurbana/linea-12/",
+      "tipo": "Transmetro",
+      "horarios": {
+        "lunes_viernes": "4:30 a 21:00 hrs.",
+        "sabado": "4:30 a 21:00 hrs.",
+        "domingo_festivos": "4:30 a 21:00 hrs."
+      },
+      "estaciones": [
+        ["Plaza Municipal", "6 avenida y 21 calle, zona 1"],
+        ["Plaza Barrios", "9 avenida y 18 calle, zona 1"],
+        ["Plaza El Amate", "18 calle y 4 avenida, zona 1"],
+        ["Don Bosco", "7 avenida y 25 calle, zona 1"],
+        ["Bolivar", "Avenida Bolivar y 32 calle, zona 8"],
+        ["Bolivar", "Avenida Bolivar y 31 calle, zona 3"],
+        ["Santa Cecilia", "Avenida Bolivar y 40 calle, zona 8"],
+        ["Trebol", "Calzada Aguilar Batres y avenida Bolivar, zona 12"],
+        ["Mariscal", "Calzada Aguilar Batres y 15 calle, zona 12"],
+        ["Mariscal", "Calzada Aguilar Batres y 15 calle, zona 12"],
+        ["Reformita", "Calzada Aguilar Batres y 20 calle, zona 12"],
+        ["Reformita", "Calzada Aguilar Batres y 21 calle, zona 12"],
+        ["El Carmen", "Calzada Aguilar Batres y 29 calle, zona 12"],
+        ["Las Charcas", "Calzada Aguilar Batres y 32 calle, zona 12"],
+        ["Las Charcas", "Calzada Aguilar Batres y 32 calle, zona 12"],
+        ["Javier", "Calzada Aguilar Batres y 38 calle, zona 12"],
+        ["Monte Maria", "Calzada Aguilar Batres y 46 calle, zona 12"],
+        ["Centra Sur", "21 avenida final, zona 12 Villa Nueva"]
+      ]
+    },
+    {
+      "codigo": "L13",
+      "nombre": "Linea 13",
+      "url": "https://www.muniguate.com/movilidadurbana/linea-13/",
+      "tipo": "Transmetro",
+      "horarios": {
+        "lunes_viernes": "5:00 a 21:00 hrs.",
+        "sabado": "5:00 a 20:00 hrs.",
+        "domingo_festivos": "5:00 a 20:00 hrs."
+      },
+      "estaciones": [
+        ["El Calvario", "6 avenida y 20 calle, zona 1"],
+        ["4 Grados Sur", "6 avenida y 24 calle, zona 4"],
+        ["Exposicion", "6 avenida y ruta 6, zona 4"],
+        ["Terminal", "6 avenida y 2 calle, zona 9"],
+        ["Industria", "6 avenida y 6 calle, zona 9"],
+        ["Tivoli", "6 avenida y 10 calle, zona 9"],
+        ["Montufar", "6 avenida y 13 calle, zona 9"],
+        ["Acueducto", "Avenida Hincapie y 4 calle, zona 13"],
+        ["Fuerza Aerea", "Avenida Hincapie y 11 calle, zona 13"],
+        ["Hangares", "15 avenida y 18 calle, zona 13"],
+        ["Plaza Argentina", "15 avenida y 11 calle, zona 13"],
+        ["Los Arcos", "15 avenida y 4 calle, zona 13"],
+        ["Plaza Espana", "7 avenida y 13 calle, zona 9"],
+        ["IGSS Zona 9", "7 avenida y 10 calle, zona 9"],
+        ["Seis 26", "7 avenida y 5 calle, zona 9"],
+        ["Torre del Reformador", "7 avenida y 1 calle, zona 9"],
+        ["Plaza de la Republica", "7 avenida y ruta 4, zona 4"],
+        ["Canton Exposicion", "7 avenida ruta 2 y via 3, zona 4"],
+        ["Banco de Guatemala", "7 avenida y 22 calle, zona 1"],
+        ["Tipografia", "18 calle y 7 avenida, zona 1"],
+        ["Plaza Berlin", "Plaza Berlin y Avenida Las Americas, zona 13"],
+        ["Juan Pablo II", "Avenida Las Americas y 21 calle, zona 14"]
+      ]
+    },
+    {
+      "codigo": "L18",
+      "nombre": "Linea 18",
+      "url": "https://www.muniguate.com/movilidadurbana/linea-18/",
+      "tipo": "Transmetro",
+      "horarios": {
+        "lunes_viernes": "5:00 a 21:00 hrs.",
+        "sabado": "5:00 a 20:00 hrs.",
+        "domingo_festivos": "6:00 a 20:00 hrs."
+      },
+      "estaciones": [
+        ["San Martin", "Barrio San Martin zona 1"],
+        ["San Martin", "7 calle y 18 avenida, zona 1"],
+        ["Victorias", "4a Ruta Las Victorias y 3 calle, zona 6"],
+        ["Portales", "Kilometro 4.5 Carretera al Atlantico, zona 17"]
+      ]
+    },
+    {
+      "codigo": "R5",
+      "nombre": "Ruta 5",
+      "url": "https://www.muniguate.com/movilidadurbana/ruta-5/",
+      "tipo": "TuBus",
+      "horarios": {
+        "lunes_viernes": "5:30 a 19:00 hrs.",
+        "sabado": "5:30 a 19:00 hrs.",
+        "domingo_festivos": "6:00 a 18:00 hrs."
+      },
+      "estaciones": [
+        ["Parque Colon", "12 avenida y 9 calle, zona 1"],
+        ["Cipreses", "Bulevar La Asuncion y Arco 3, zona 5"],
+        ["Cipreses", "Bulevar La Asuncion y 11 calle, zona 5"],
+        ["Jardines de La Asuncion", "Parque Colon"],
+        ["Jardines de La Asuncion", "Puente de La Penitenciaria"],
+        ["Arivillaga", "Bulevar La Asuncion y 20 calle, zona 5"],
+        ["Parque Navidad", "23 calle y 28 avenida, zona 5"],
+        ["La Palmita", "27 calle y 20 avenida, zona 5"],
+        ["Palacio de Los Deportes", "Parque Colon"],
+        ["Palacio de Los Deportes", "Puente de La Penitenciaria"],
+        ["Puente de La Penitenciaria", "Via 1 y 7 avenida, zona 4"],
+        ["Mercado La Palmita", "28 calle y 17 avenida A, zona 5"],
+        ["Vivibien", "Diagonal 14 y 23 calle, zona 5"],
+        ["Matamoros", "7 calle y 6 avenida, zona 1"]
+      ]
+    }
+  ]
+}

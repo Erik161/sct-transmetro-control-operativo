@@ -1,0 +1,42 @@
+[
+  {
+    "codigo": "L1",
+    "nombre": "Sur 2",
+    "ubicacion": "Calzada Atanasio Tzul, zona 1",
+    "lat": 14.6180325,
+    "lng": -90.523129,
+    "display_name": "Calzada Atanasio Tzul, Cantón Guarda Viejo, Zona 8, Asentamiento Lourdes, Ciudad de Guatemala, Zona 2, Departamento de Guatemala, 01008, Guatemala"
+  },
+  {
+    "codigo": "R5",
+    "nombre": "Jardines de La Asuncion",
+    "ubicacion": "Parque Colon",
+    "lat": 14.639871,
+    "lng": -90.507755,
+    "display_name": "Parque Colón, Zona 1, Centro Histórico, Ciudad de Guatemala, Zona 2, Departamento de Guatemala, 01001, Guatemala"
+  },
+  {
+    "codigo": "R5",
+    "nombre": "Jardines de La Asuncion",
+    "ubicacion": "Puente de La Penitenciaria",
+    "lat": 14.6246811,
+    "lng": -90.5151346,
+    "display_name": "TuBus: Puente de la Penitenciaría, Vía 1, Zona 4, Asentamiento Lourdes, Ciudad de Guatemala, Zona 2, Departamento de Guatemala, 01004, Guatemala"
+  },
+  {
+    "codigo": "R5",
+    "nombre": "Palacio de Los Deportes",
+    "ubicacion": "Parque Colon",
+    "lat": 14.639871,
+    "lng": -90.507755,
+    "display_name": "Parque Colón, Zona 1, Centro Histórico, Ciudad de Guatemala, Zona 2, Departamento de Guatemala, 01001, Guatemala"
+  },
+  {
+    "codigo": "R5",
+    "nombre": "Palacio de Los Deportes",
+    "ubicacion": "Puente de La Penitenciaria",
+    "lat": 14.6246811,
+    "lng": -90.5151346,
+    "display_name": "TuBus: Puente de la Penitenciaría, Vía 1, Zona 4, Asentamiento Lourdes, Ciudad de Guatemala, Zona 2, Departamento de Guatemala, 01004, Guatemala"
+  }
+]
