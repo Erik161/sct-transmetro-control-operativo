@@ -119,8 +119,8 @@ Los secretos del servidor deben configurarse mediante variables de entorno y no 
 - Prototipo desplegado: [http://32.196.225.199](http://32.196.225.199)
 - Repositorio GitHub: [https://github.com/Erik161/sct-transmetro-control-operativo](https://github.com/Erik161/sct-transmetro-control-operativo)
 - Carpeta raiz de entrega en Drive: [https://drive.google.com/drive/folders/1rNMYj7qidFFTBz4DwhOPin8PUCF52ZEB?usp=sharing](https://drive.google.com/drive/folders/1rNMYj7qidFFTBz4DwhOPin8PUCF52ZEB?usp=sharing)
-- Video de exposicion: subir en Drive en `02_Video_Exposicion`.
-- Presentacion ejecutiva: subir en Drive en `01_Presentacion_PPT`.
+- Video de exposicion: [https://drive.google.com/drive/folders/1pL2vODBMGHQEDe6ZW_EAjH9P7ZDKAUYp?usp=sharing](https://drive.google.com/drive/folders/1pL2vODBMGHQEDe6ZW_EAjH9P7ZDKAUYp?usp=sharing)
+- Presentacion ejecutiva: [https://drive.google.com/drive/folders/1O3O4NV_BZLfKTH90bStW0lA9Z_d-uMIi?usp=sharing](https://drive.google.com/drive/folders/1O3O4NV_BZLfKTH90bStW0lA9Z_d-uMIi?usp=sharing)
 
 ## Alcance Academico
 
