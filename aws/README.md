@@ -1,6 +1,8 @@
 # AWS
 
-Aqui se documentara y configurara la arquitectura de despliegue en AWS.
+El prototipo se despliega en una instancia AWS EC2 mediante Docker Compose.
+
+La guia de instalacion y actualizacion se encuentra en `DEPLOY_EC2.md`.
 
 ## Servicios definidos por el proyecto
 

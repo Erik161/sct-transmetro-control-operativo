@@ -116,11 +116,9 @@ Los secretos del servidor deben configurarse mediante variables de entorno y no 
 
 ## Enlaces De Entrega
 
-Los enlaces publicos se agregaran al finalizar la publicacion:
-
-- Sistema desplegado: `PENDIENTE`
-- Video de presentacion: `PENDIENTE`
-- Presentacion ejecutiva: `PENDIENTE`
+- Sistema desplegado: [http://32.196.225.199](http://32.196.225.199)
+- Repositorio: [github.com/Erik161/sct-transmetro-control-operativo](https://github.com/Erik161/sct-transmetro-control-operativo)
+- Material de entrega, video y presentacion ejecutiva: [Carpeta publica de Google Drive](https://drive.google.com/drive/folders/1rNMYj7qidFFTBz4DwhOPin8PUCF52ZEB?usp=sharing)
 
 ## Alcance Academico
 
